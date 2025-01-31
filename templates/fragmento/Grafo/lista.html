@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="contact section">
+    <div class="container section-title text-center mb-4">
+        <h2 class="text-warning">Grafo</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Aquí va el formulario -->
+            <div class="col-md-6 offset-md-3">
+                <!-- Pega el formulario aquí -->
+                <form method="POST" action="/admin/graph/caminomascorto" class="card p-4 shadow" onsubmit="debugForm(event)">
+                    <div class="form-group">
+                        <label for="from_city" class="font-weight-bold">Ciudad de Origen:</label>
+                        <select class="form-control" id="from_city" name="from_city" required>
+                            {% for ciudad in ciudades %}
+                                <option value="{{ ciudad.name }}">{{ ciudad.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="to_city" class="font-weight-bold">Ciudad de Destino:</label>
+                        <select class="form-control" id="to_city" name="to_city" required>
+                            {% for ciudad in ciudades %}
+                                <option value="{{ ciudad.name }}">{{ ciudad.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="method" class="font-weight-bold">Método:</label>
+                        <select class="form-control" id="method" name="method" required>
+                            <option value="floyd">Floyd-Warshall</option>
+                            <option value="bellman">Bellman-Ford</option>
+                            <option value="bfs">Búsqueda por Anchura (BFS)</option> <!-- Nueva opción -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-outline-warning btn-block">Calcular Camino Más Corto</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Aquí va la sección de resultados -->
+        {% if path_info %}
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card p-4 shadow">
+                    <h4 class="text-center mb-4">Resultado:</h4>
+                    <div class="result-item">
+                        <span class="font-weight-bold">Desde:</span> {{ path_info.from }}
+                    </div>
+                    <div class="result-item">
+                        <span class="font-weight-bold">Hasta:</span> {{ path_info.to }}
+                    </div>
+                    <div class="result-item">
+                        <span class="font-weight-bold">Distancia:</span> {{ path_info.distance }}
+                    </div>
+                    <div class="result-item">
+                        <span class="font-weight-bold">Camino:</span> {{ path_info.path|join(' → ') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+    function debugForm(event) {
+        event.preventDefault(); // Evita que el formulario se envíe automáticamente
+        const fromCity = document.getElementById('from_city').value;
+        const toCity = document.getElementById('to_city').value;
+        const method = document.getElementById('method').value;
+        console.log("Ciudad de Origen:", fromCity);
+        console.log("Ciudad de Destino:", toCity);
+        console.log("Método seleccionado:", method);
+        event.target.submit(); // Envía el formulario después de depurar
+    }
+</script>
+
+<style>
+    /* Estilos para el formulario y resultados */
+/* Estilos para el formulario y resultados */
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #0a0a0a; /* Fondo oscuro para la tarjeta */
+    color: white; /* Texto blanco para el contenido general */
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+
+.result-item {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Etiquetas (Desde:, Hasta:, etc.) en amarillo */
+.result-item span {
+    color: #ffc107; /* Amarillo para las etiquetas */
+}
+
+/* Valores (Loja, Catamayo, 17.265302, etc.) en blanco */
+.result-item {
+    color: white; /* Blanco para los valores */
+}
+
+.alert {
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+.font-weight-bold {
+    font-weight: 600;
+}
+</style>
+
+
+
+{% endblock %}

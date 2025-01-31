@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafos</title>
+    <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+    <h1>Grafo</h1>
+
+    <!-- Mapa -->
+    <div id="map" class="map map-home"></div>
+
+    <!-- Botones y formulario -->
+    <div class="d-flex" data-aos="fade-up" data-aos-delay="300">
+        <a href="/admin/vertice/register" class="cta-btn">Agregar Vértice</a>
+        <button id="generarAdyacencias" class="cta-btn">Generar Adyacencias</button>
+
+        <div class="cta-btn">
+            <a href="/admin/graph/caminomascorto" class="cta-btn">Camino mas corto</a>
+            
+        </div>
+    </div>
+
+    <!-- Pasar las ciudades al JavaScript -->
+    <script>
+        var ciudades = JSON.parse('{{ ciudades | tojson | safe }}');
+        console.log("Ciudades en el template:", ciudades); // Verificar que estén bien
+    </script>
+
+    <!-- Script del mapa -->
+    <script src="{{ url_for('static', filename='js/mapa.js') }}"></script>
+</body>
+</html>

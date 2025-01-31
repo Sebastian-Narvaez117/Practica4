@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{%block content1 %}
+
+<div class="container section-title">
+  <h2>Editar</h2>
+  <p>Familias</p>
+</div>
+
+<div class="container"  >
+  <form  method="post" role="form" action="/admin/family/update" class="form">
+    <input type="hidden" value="{{person.id}}" name="id"/>
+      <div class="row gy-4">
+          <div class="col-lg-4 col-md-6">
+              <input type="text" name="apellido" class="form-control"  placeholder="Apellido" required value="{{person.apellido}}" style="background-color: black; color: rgb(151, 151, 98);">
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <input type="text" class="form-control" name="direccion" placeholder="Direccion" required value="{{person.direccion}}" style="background-color: black; color: rgb(151, 151, 98);" >
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <input type="text" class="form-control" name="telefono"  placeholder="Telefono" required value="{{person.telefono}}" style="background-color: black; color: rgb(151, 151, 98);">
+          </div>        
+      </div>
+      <div class="text-center mt-3">
+          <button class="btn btn-dark"  type="submit">Registrar</button> 
+          <a href="/admin/family/list" class="btn btn-danger">Cancelar</a>
+      </div>
+  </form>
+</div>
+{% endblock %}

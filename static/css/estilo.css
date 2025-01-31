@@ -1,0 +1,112 @@
+/* Estilos generales */
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Título */
+h1 {
+    color: rgb(248, 244, 6);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Mapa */
+#map {
+    width: 100%;
+    max-width: 1500px;
+    height: 700px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 100px;
+}
+
+/* Contenedor de botones */
+.d-flex {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Botones */
+.cta-btn {
+    color: rgb(248, 244, 6);
+    border: 2px solid var(--accent-color);
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color: transparent;
+    position: relative;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.cta-btn:hover {
+    background-color: rgb(77, 77, 72);
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+}
+
+/* Mostrar el menú al pasar el cursor sobre el botón */
+.cta-btn:hover .dropdown-menu {
+    display: block;
+}
+
+/* Contenedor del formulario */
+.select-container {
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.select-container label {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.select-container select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    margin-right: 10px;
+}
+
+

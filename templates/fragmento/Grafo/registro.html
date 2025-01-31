@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content1 %}
+
+<div class="container section-title">
+  <h2>Registro</h2>
+  <p>Vertice</p>
+</div>
+
+<!-- Sección para mostrar alertas -->
+<div class="container mt-4">
+ 
+</div>
+
+<!-- Formulario -->
+<div class="container">
+  <form method="post" role="form" action="/admin/vertice/save" class="form needs-validation">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6">
+        <input type="text" name="nombre" class="form-control custom-input" placeholder="Nombre" required style="background-color: black; color: rgb(151, 151, 98);">
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <input type="text" class="form-control custom-input" name="lat" placeholder="Latitud" required style="background-color: black; color: rgb(151, 151, 98);">
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <input type="text" class="form-control custom-input" name="lon" placeholder="Longitud" required style="background-color: black; color: rgb(151, 151, 98);">
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <input type="text" class="form-control custom-input" name="habitantes" placeholder="Habitantes" required style="background-color: black; color: rgb(151, 151, 98);">
+      </div>
+
+
+    </div>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-dark" type="submit">Registrar</button>
+      <a href="/admin/graph/vertices" class="btn btn-danger">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
