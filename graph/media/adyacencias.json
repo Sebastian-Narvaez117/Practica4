@@ -1,0 +1,46 @@
+[
+  {
+    "from": "Changaimina",
+    "to": "Catamayo"
+  },
+  {
+    "from": "Catamayo",
+    "to": "Malacatos"
+  },
+  {
+    "from": "Loja",
+    "to": "Cariamanga"
+  },
+  {
+    "from": "Gonzanama",
+    "to": "Cariamanga"
+  },
+  {
+    "from": "Changaimina",
+    "to": "Loja"
+  },
+  {
+    "from": "Malacatos",
+    "to": "Nambacola"
+  },
+  {
+    "from": "Loja",
+    "to": "Changaimina"
+  },
+  {
+    "from": "Loja",
+    "to": "Catamayo"
+  },
+  {
+    "from": "Catamayo",
+    "to": "Loja"
+  },
+  {
+    "from": "Cariamanga",
+    "to": "Malacatos"
+  },
+  {
+    "from": "Changaimina",
+    "to": "Gonzanama"
+  }
+]
